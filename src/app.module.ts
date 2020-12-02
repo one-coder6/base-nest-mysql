@@ -5,7 +5,6 @@ import { CommonMiddleware } from './middlewares/common.middleware';
 import { UserModule } from './modules/user/user.module';
 import { ConfigModule } from './config/config.module';
 import { ConfigService } from './config/config.service';
-import { TestModule } from './modules/test/test.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TypeOrmConfigService } from './config/typeorm.service';
 
@@ -15,7 +14,7 @@ const options = {
   useClass: TypeOrmConfigService,
 };
 @Module({
-  imports: [TypeOrmModule.forRootAsync(options), UserModule, TestModule],
+  imports: [TypeOrmModule.forRootAsync(options), UserModule],
   controllers: [AppController],
   providers: [AppService, TypeOrmConfigService],
 })
